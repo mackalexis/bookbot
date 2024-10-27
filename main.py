@@ -2,24 +2,15 @@ def main():
     path = 'books/frankenstein.txt'
     book_text = get_file_contents(path)
     num_words = get_word_count(book_text)
-    #print(f"Number of words: {num_words}")
     char_count = count_chars(book_text)
     sorted_dict = sort_char_dict(char_count)
-    #print(f"Character count dict: {char_count}")
-    #char_count_list = list(char_count)
-    #char_count_list = [char_count]
-    #char_count_list.sort(reverse=True, key=sort_on)
-    #print(f"CHARCOUNTLIST: {char_count_list}")
     print_report(num_words, sorted_dict)
 
 def print_report(word_count, char_count_list):
     print("--- Begin report of books/frankenstein.txt ---")
     print(f"{word_count} words found in the document")
-    #print(f"CHAR COUNT LIST: {char_count_list}")
     
     for char in char_count_list:
-        #print(f"The character {char} appears {char_count_list['char']['count']} times")
-        #print(f"The character {char}") 
         print(f"The character {char['char']} appears {char['count']} times") 
 
     print("--- End report ---")
@@ -61,17 +52,5 @@ def count_chars(text):
         #letters[char] += 1
         letters[char] = letters[char] + 1
     return letters
-
-    '''
-    def get_chars_dict(text):
-    chars = {}
-    for c in text:
-        lowered = c.lower()
-        if lowered in chars:
-            chars[lowered] += 1
-        else:
-            chars[lowered] = 1
-    return chars
-    '''
 
 main()
